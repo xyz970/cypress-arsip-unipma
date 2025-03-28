@@ -1,0 +1,24 @@
+{
+  "name": "cypress-arsip-unipma",
+  "version": "1.0.0",
+  "sideEffects":false,
+  "description": "test case with cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open": "cypress open"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xyz970/cypress-arsip-unipma.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xyz970/cypress-arsip-unipma/issues"
+  },
+  "homepage": "https://github.com/xyz970/cypress-arsip-unipma#readme",
+  "devDependencies": {
+    "cypress": "^14.1.0"
+  }
+}
