@@ -95,4 +95,5 @@ it("Skenario Bruteforce dengan 100 akun(email & password yang berbeda)", () => {
     cy.get("body").type("{Enter}");
     cy.get("button.btn.btn-primary").click();
   }
+  cy.location("pathname").should("eq", "/");
 });
