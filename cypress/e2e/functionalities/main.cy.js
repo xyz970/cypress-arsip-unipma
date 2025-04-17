@@ -12,21 +12,6 @@ describe('Akses halaman admin', () => {
     cy.scrollTo('bottom')
   });
 
-  // it('Akses halaman dosen',()=>{
-  //   cy.login("admin@gmail.com","admin123");
-  //   cy.visit('admin/sender'); // Akses halaman admin/sender
-
-  //   cy.get('[data-bs-toggle="modal"]').click(); // Klik tombol buka modal
-
-  //   cy.get('input[name="name"]').type("Test Nama Dosen");
-  //   cy.get('input[name="nidn"]').type("Test NIDN Dosen");
-  //   cy.get('textarea[name="pendidikan"]').type("Test Pendidikan Dosen");
-  //   cy.get('input[name="jabatan"]').type("Test Jabatan Dosen");
-  //   cy.get('input[name="email"]').type("test12@gmail.com");
-
-  //   cy.get('button[class="btn btn-primary"]').should('contain.text','Simpan').click(); //Klik tombol simpan
-
-  // });
 
   it('Akses halaman tambah dokumen',()=>{
     cy.login("admin@gmail.com","admin123");
@@ -48,6 +33,20 @@ describe('Akses halaman admin', () => {
     cy.login("admin@gmail.com","admin123");
     cy.visit('admin/user');
     cy.get('a[class="btn btn-sm btn-primary"]').click();
+
+    var name = Math.random().toString(36).substring(2,7);
+    cy.get('input[name="name"]').type(name.toUpperCase());
+    cy.get('input[name="email"]').type(name+"@gmail.com");
+    cy.get('input[name="password"]').type("123456");
+    
+    cy.get('button[class="btn btn-primary"]').should('contain.text','Tambah Pengguna Baru').click(); //Klik tombol simpan
+  });
+
+  it('Pengguna Logout',()=>{
+    cy.login("admin@gmail.com","admin123");
+    cy.visit('admin/dashboard');
+    cy.get('a[data-bs-toggle="dropdown"]').click();
+    cy.get('button[type="submit"]').should('contain.text','Logout').click();
   });
   
 
