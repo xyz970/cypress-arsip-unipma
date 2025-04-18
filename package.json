@@ -1,12 +1,13 @@
 {
   "name": "cypress-arsip-unipma",
   "version": "1.0.0",
-  "sideEffects":false,
+  "sideEffects": false,
   "description": "test case with cypress",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cy:open": "cypress open"
+    "cy:open": "cypress open",
+    "cy:generate": "npx cypress run --reporter mochawesome  --reporter-options repportDir='cypress/results',overwrite=true,html=false,json=true"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +20,10 @@
   },
   "homepage": "https://github.com/xyz970/cypress-arsip-unipma#readme",
   "devDependencies": {
-    "cypress": "^14.1.0"
+    "cypress": "^14.1.0",
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^5.0.0",
+    "mochawesome-report-generator": "^6.2.0"
   }
 }

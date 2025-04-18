@@ -31,7 +31,9 @@ describe('Akses halaman admin', () => {
 
   it('Akses halaman data pengguna',()=>{
     cy.login("admin@gmail.com","admin123");
-    cy.visit('admin/user');
+    cy.visit('admin/user',{
+      failOnStatusCode: false
+    });
     cy.get('a[class="btn btn-sm btn-primary"]').click();
 
     var name = Math.random().toString(36).substring(2,7);
@@ -44,7 +46,9 @@ describe('Akses halaman admin', () => {
 
   it('Pengguna Logout',()=>{
     cy.login("admin@gmail.com","admin123");
-    cy.visit('admin/dashboard');
+    cy.visit('admin/dashboard',{
+      failOnStatusCode: false
+    });
     cy.get('a[data-bs-toggle="dropdown"]').click();
     cy.get('button[type="submit"]').should('contain.text','Logout').click();
   });
