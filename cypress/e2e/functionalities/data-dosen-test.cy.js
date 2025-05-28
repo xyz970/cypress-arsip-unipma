@@ -18,7 +18,7 @@ describe("Halaman Data Dosen", () => {
         cy.get("#createModal").should("be.visible");
     });
 
-    it("Tampilkan pesan gagal ketika input tidak valid (cth. input nama mengandung simbol)", () => {
+    it("Tampilkan pesan gagal ketika input tidak valid (cth. input nama mengandung simbol) saat tambah data", () => {
         cy.get(
             "#layoutSidenav_content > main > div > div > div > div > div.card-header > a"
         ).click();
@@ -58,7 +58,7 @@ describe("Halaman Data Dosen", () => {
         cy.get("#updateModal" + dataId).should('be.visible');
     })
 
-    it("Tampilkan pesan gagal ketika input tidak valid (cth. input nama mengandung simbol)", () => {
+    it("Tampilkan pesan gagal ketika input tidak valid (cth. input nama mengandung simbol) saat ubah data", () => {
         var dataId = "10"; // ubah target modal
         cy.get("a[data-bs-target='#updateModal" + dataId + "']").click();
 
@@ -102,6 +102,7 @@ describe("Halaman Data Dosen", () => {
 
     it("Tampilkan peringatan hapus terlebih dahulu ketika user akan menghapus data", () => {
         cy.get("#crudTable > tbody > tr:nth-child(1) > td:nth-child(7) > form > button").click({force: true});
+        // tampilkan confirm alert
         cy.on('window:confirm', (confirmText) => {
             expect(confirmText).to.equal('Anda akan menghapus item ini dari situs anda?');
             return true; // Simulate clicking 'OK'
