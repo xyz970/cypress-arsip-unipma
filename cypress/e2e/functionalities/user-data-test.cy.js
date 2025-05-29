@@ -28,12 +28,12 @@ describe("Halaman Data Pengguna", () => {
         cy.url().should("be.equal", `${Cypress.config("baseUrl")}admin/user/create`);
     })
 
-    it("Tampilkan pesan gagal ketika input tidak valid", () => {
+    it("Tampilkan pesan gagal ketika input tidak valid saat tambah data", () => {
         cy.get("#layoutSidenav_content > main > div > div > div > div > div.card-header > a").click();
 
         var name = Math.random().toString(36).substring(2, 7);
         cy.get('input[name="name"]').type(name.toUpperCase());
-        cy.get('input[name="email"]').type(name + "");
+        cy.get('input[name="email"]').type(name + "@gmail.com");
         cy.get('input[name="password"]').type("123456");
         cy.get("#layoutSidenav_content > main > div > div > div > div > div.card-body > form > button").click();
         cy.url().should("be.equal", `${Cypress.config("baseUrl")}admin/user/create`);
